@@ -49,5 +49,6 @@ class decorator_3(object):
             t.add_row([item[0], i, item[1]])
             i += 1
 
-        print(counts)
+        for func in counts:
+            print(f"Number of time the function {func} was called", counts[func])
         print(t)

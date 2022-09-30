@@ -1,4 +1,4 @@
-import inspect, time, io
+import inspect, time, io, random
 from math import sqrt
 from contextlib import redirect_stdout
 from prettytable import PrettyTable
@@ -17,34 +17,31 @@ from task4 import decorator_4
 # 	# the arguemet will not pass to the solver
 # 	return lambda a, b, c: ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a), (-b - sqrt((b * b) - (4 * a * c))) / (2 * a))
 
-# Applying the first task
-print("Applying the first task")
-
 @decorator_1
-def pascal(n):
+def pascal1(n):
 	# n is the number of rows we want the program to print
 	return [(lambda s: [s] + [s := s * (r - t) // (t + 1) for t in range(r)])(1) for r in range(n)]
 
 
 @decorator_1
-def solver():
+def solver1():
 	# the arguemet will not pass to the solver
 	return lambda a, b, c: ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a), (-b - sqrt((b * b) - (4 * a * c))) / (2 * a))
 
-# Test the first function
-print(pascal(5))
-
-# Test the second function
-print(solver()(1, 2, 0))
-
-
-print("\n\n")
-
-# Applying the second task
-print("Applying the second task")
+@decorator_1
+def funcx1(a = 2, b = 5):
+    """funx just for testing"""
+    print("Processing...")
+    
+    n, r =  random.randint(10,751), random.randint(10,751)
+    res = [i ** 2 for i in range(n)]
+    c = 0
+    for i in res:
+        if i > r: 
+            c += 1
 
 @decorator_2
-def pascal(n):
+def pascal2(n):
 	"""
 	Function to print the first n rows of pascal triangle
 
@@ -56,7 +53,7 @@ def pascal(n):
 
 
 @decorator_2
-def solver():
+def solver2():
 	"""
 	Function to solve quadratic equation
 
@@ -67,18 +64,20 @@ def solver():
 	return lambda a, b, c: ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a), (-b - sqrt((b * b) - (4 * a * c))) / (2 * a))
 
 
-# Test the first function
-print(pascal(5))
-# Test the second function
-print(solver()(1, 2, 0))
-
-print("\n\n")
-
-# Applying the third task
-print("Applying the third task")
+@decorator_2
+def funcx2(a = 2, b = 5):
+    """funx just for testing"""
+    print("Processing...")
+    
+    n, r =  random.randint(10,751), random.randint(10,751)
+    res = [i ** 2 for i in range(n)]
+    c = 0
+    for i in res:
+        if i > r: 
+            c += 1
 
 @decorator_3
-def pascal(n):
+def pascal3(n):
 	"""
 	Function to print the first n rows of pascal triangle
 
@@ -90,7 +89,7 @@ def pascal(n):
 
 
 @decorator_3
-def solver():
+def solver3():
 	"""
 	Function to solve quadratic equation
 
@@ -101,22 +100,20 @@ def solver():
 	return lambda a, b, c: ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a), (-b - sqrt((b * b) - (4 * a * c))) / (2 * a))
 
 
-# Test the first function
-print(pascal(5))
-# Test the second function
-print(solver()(1, 2, 0))
-
-# Call by the decorator class itself (not an instance)
-decorator_3.get_time()
-
-print("\n\n")
-
-# Applying the fourth task
-print("Applying the fourth task")
-print("Basically same output as the second task")
+@decorator_3
+def funcx3(a = 2, b = 5):
+    """funx just for testing"""
+    print("Processing...")
+    
+    n, r =  random.randint(10,751), random.randint(10,751)
+    res = [i ** 2 for i in range(n)]
+    c = 0
+    for i in res:
+        if i > r: 
+            c += 1
 
 @decorator_4
-def pascal(n):
+def pascal4(n):
 	"""
 	Function to print the first n rows of pascal triangle
 
@@ -128,7 +125,7 @@ def pascal(n):
 
 
 @decorator_4
-def solver():
+def solver4():
 	"""
 	Function to solve quadratic equation
 
@@ -138,5 +135,58 @@ def solver():
 	# the arguemet will not pass to the solver
 	return lambda a, b, c: ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a), (-b - sqrt((b * b) - (4 * a * c))) / (2 * a))
 
-pascal(4)
-print(solver()(1,2,0))
+@decorator_4
+def funcx4(a = 2, b = 5):
+    """funx just for testing"""
+    print("Processing...")
+    
+    n, r =  random.randint(10,751), random.randint(10,751)
+    res = [i ** 2 for i in range(n)]
+    c = 0
+    for i in res:
+        if i > r: 
+            c += 1
+
+if __name__ == "__main__":
+
+	answer = int(input("Enter the number of decorator you want to test "))
+
+	if answer == 1:
+		print("Applying the first task")
+		print(pascal1(5))
+		print(pascal1(5))		
+		result = solver1()(1, 2, 0)
+		print("the first root =", result[0])
+		print("the second root =", result[1])
+		result = solver1()(1, 2, 0)
+		print("the first root =", result[0])
+		print("the second root =", result[1])
+		funcx1(1, 100)
+		funcx1(1, 100)
+		funcx1(1, 100)
+
+	if answer == 2:
+		print("Applying the second task")		
+		print(pascal2(5))
+		result = solver2()(1, 2, 0)
+		print("the first root =", result[0])
+		print("the second root =", result[1])
+		funcx2(1, 100)
+
+	if answer == 3:
+		print("Applying the third task")
+		print(pascal3(5))
+		result = solver3()(1, 2, 0)
+		print("the first root =", result[0])
+		print("the second root =", result[1])
+		funcx3(1, 100)
+		# Call by the decorator class itself (not an instance)
+		decorator_3.get_time()
+
+	if answer == 4:
+		print("Applying the fourth task")		
+		print(pascal4(5))
+		result = solver4()(1, 2, 0)
+		print("the first root =", result[0])
+		print("the second root =", result[1])
+		funcx4(1, 100)

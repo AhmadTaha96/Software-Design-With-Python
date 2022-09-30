@@ -176,9 +176,13 @@ if __name__ == "__main__":
 	if answer == 3:
 		print("Applying the third task")
 		print(pascal3(5))
+		print(pascal3(5))
+		result = solver3()(1, 2, 0)
 		result = solver3()(1, 2, 0)
 		print("the first root =", result[0])
 		print("the second root =", result[1])
+		funcx3(1, 100)
+		funcx3(1, 100)
 		funcx3(1, 100)
 		# Call by the decorator class itself (not an instance)
 		decorator_3.get_time()
